@@ -14,10 +14,17 @@ data "aws_alb" "autoscaling_alb" {
   arn   = "${data.aws_alb_listener.autoscaling_alb_listener.load_balancer_arn}"
 }
 
+// target_id generates a random 28-character ID for use as the unique ID for
+// our target group. The byte length is actually 14 bytes so that it can be
+// rendered as hex.
+resource "random_id" "target_id" {
+  byte_length = 14
+}
+
 // autoscaling_alb_target_group creates the ALB target group.
 resource "aws_alb_target_group" "autoscaling_alb_target_group" {
   count    = "${lookup(map("true", "1"), var.enable_alb, "0")}"
-  name     = "TGT-${replace(aws_launch_configuration.autoscaling_launch_configuration.name, "terraform-", "")}"
+  name     = "TGT-${random_id.target_id.hex}"
   port     = "${var.alb_service_port}"
   protocol = "${var.alb_target_protocol}"
   vpc_id   = "${data.aws_subnet.primary_subnet.vpc_id}"
