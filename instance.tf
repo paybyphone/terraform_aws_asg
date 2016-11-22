@@ -1,0 +1,27 @@
+// module terraform_aws_asg
+
+// autoscaling_launch_ami is a data-driven pseudo-resource that searches for
+// the latest AMI with the supplied tag combination.
+data "aws_ami" "autoscaling_launch_ami" {
+  most_recent = true
+  owners      = ["self"]
+
+  filter {
+    name   = "tag:${var.image_tag_name}"
+    values = ["${var.image_tag_value}"]
+  }
+}
+
+// autoscaling_launch_configuration provides the launch configuration for the
+// autoscaling group.
+resource "aws_launch_configuration" "autoscaling_launch_configuration" {
+  image_id             = "${data.aws_ami.autoscaling_launch_ami.id}"
+  instance_type        = "${var.instance_type}"
+  security_groups      = ["${module.autoscaling_instance_security_group.security_group_id}"]
+  iam_instance_profile = "${var.instance_profile_arn}"
+  key_name             = "${var.key_pair_name}"
+
+  lifecycle {
+    create_before_destroy = true
+  }
+}
