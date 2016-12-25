@@ -35,14 +35,28 @@ variable "max_cpu" {
   default = "9"
 }
 
-// The image tag name to look for
+// The account to search for the image in. This defaults to "self", but can be
+// either this, numeric account ID, or "amazon".
+variable "image_owner" {
+  type    = "string"
+  default = "self"
+}
+
+// The image filter type. Can be one of the filter types specified here:
+// http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html
+variable "image_filter_type" {
+  type    = "string"
+  default = "tag"
+}
+
+// The image tag name to look for, if image_filter_type is "tag"
 variable "image_tag_name" {
   type    = "string"
   default = "image_type"
 }
 
-// Image tag value to look for.
-variable "image_tag_value" {
+// The image filter value to look for.
+variable "image_filter_value" {
   type = "string"
 }
 

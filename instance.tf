@@ -4,11 +4,11 @@
 // the latest AMI with the supplied tag combination.
 data "aws_ami" "autoscaling_launch_ami" {
   most_recent = true
-  owners      = ["self"]
+  owners      = ["${var.image_owner}"]
 
   filter {
-    name   = "tag:${var.image_tag_name}"
-    values = ["${var.image_tag_value}"]
+    name   = "${image_filter_type}${var.image_filter_type == "tag" ? format(":%s", var.image_tag_name) : "" }"
+    values = ["${var.image_filter_value}"]
   }
 }
 
