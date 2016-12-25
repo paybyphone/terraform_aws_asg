@@ -76,7 +76,7 @@ For more information on burstable instances, see:
 | min_cpu | Low threshold before instances start being deleted, in percent. | `2` | no |
 | max_cpu | Max threshold where instances start being created, in percent. | `9` | no |
 | image_owner | The account to search for the image in. This defaults to "self", but can be either this, numeric account ID, or "amazon". | `self` | no |
-| image_filter_type | The image filter type. Can be one of the filter types specified here: http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html | `tag` | no |
+| image_filter_type | The image filter type. Can be one of the filter types specified [here](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html). | `tag` | no |
 | image_tag_name | The image tag name to look for, if image_filter_type is "tag" | `image_type` | no |
 | image_filter_value | The image filter value to look for. | - | yes |
 | instance_type | The EC2 instance type. | `t2.micro` | no |

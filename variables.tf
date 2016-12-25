@@ -42,8 +42,8 @@ variable "image_owner" {
   default = "self"
 }
 
-// The image filter type. Can be one of the filter types specified here:
-// http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html
+// The image filter type. Can be one of the filter types specified
+// [here](http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html).
 variable "image_filter_type" {
   type    = "string"
   default = "tag"
