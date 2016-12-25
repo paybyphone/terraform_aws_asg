@@ -75,8 +75,10 @@ For more information on burstable instances, see:
 | max_instance_count | The maximum amount of instances in the group | `2` | no |
 | min_cpu | Low threshold before instances start being deleted, in percent. | `2` | no |
 | max_cpu | Max threshold where instances start being created, in percent. | `9` | no |
-| image_tag_name | The image tag name to look for | `image_type` | no |
-| image_tag_value | Image tag value to look for. | - | yes |
+| image_owner | The account to search for the image in. This defaults to "self", but can be either this, numeric account ID, or "amazon". | `self` | no |
+| image_filter_type | The image filter type. Can be one of the filter types specified here: http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html | `tag` | no |
+| image_tag_name | The image tag name to look for, if image_filter_type is "tag" | `image_type` | no |
+| image_filter_value | The image filter value to look for. | - | yes |
 | instance_type | The EC2 instance type. | `t2.micro` | no |
 | enable_alb | `true` if you are attaching this autoscaling group to an Application Load Balancer (ALB). | `false` | no |
 | alb_listener_arn | The ARN Application Load Balancer (ALB) Listner to attach this ASG to. If you are not using ALB or will be attaching outside of the module, do not specify this value. | `` | no |
