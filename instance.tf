@@ -7,7 +7,7 @@ data "aws_ami" "autoscaling_launch_ami" {
   owners      = ["${var.image_owner}"]
 
   filter {
-    name   = "${image_filter_type}${var.image_filter_type == "tag" ? format(":%s", var.image_tag_name) : "" }"
+    name   = "${var.image_filter_type}${var.image_filter_type == "tag" ? format(":%s", var.image_tag_name) : "" }"
     values = ["${var.image_filter_value}"]
   }
 }
