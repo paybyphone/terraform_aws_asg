@@ -39,11 +39,11 @@
  *     }
  *     
  *     module "autoscaling_group" {
- *       source           = "github.com/paybyphone/terraform_aws_asg?ref=VERSION"
- *       subnet_ids       = ["${module.vpc.public_subnet_ids}"]
- *       image_tag_value  = "test_image"
- *       alb_listener_arn = "${module.alb.alb_listener_arn}"
- *       project_path     = "your/project"
+ *       source             = "github.com/paybyphone/terraform_aws_asg?ref=VERSION"
+ *       subnet_ids         = ["${module.vpc.public_subnet_ids}"]
+ *       image_filter_value = "test_image"
+ *       alb_listener_arn   = "${module.alb.alb_listener_arn}"
+ *       project_path       = "your/project"
  *     }
  * 
  * ## CPU Threshold Note
