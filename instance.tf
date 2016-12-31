@@ -15,11 +15,13 @@ data "aws_ami" "autoscaling_launch_ami" {
 // autoscaling_launch_configuration provides the launch configuration for the
 // autoscaling group.
 resource "aws_launch_configuration" "autoscaling_launch_configuration" {
+  iam_instance_profile = "${var.instance_profile_arn}"
+  iam_instance_profile = "${var.instance_profile_arn}"
   image_id             = "${data.aws_ami.autoscaling_launch_ami.id}"
   instance_type        = "${var.instance_type}"
-  security_groups      = ["${module.autoscaling_instance_security_group.security_group_id}"]
-  iam_instance_profile = "${var.instance_profile_arn}"
   key_name             = "${var.key_pair_name}"
+  security_groups      = ["${module.autoscaling_instance_security_group.security_group_id}"]
+  user_data            = "${var.user_data}"
 
   lifecycle {
     create_before_destroy = true
