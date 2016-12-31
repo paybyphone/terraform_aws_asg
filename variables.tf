@@ -163,7 +163,7 @@ variable "extra_depends_on" {
 // User data, either a cloud-config YAML file or a shell script, to load into
 // the instance. For more information see
 // [here](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html)
-// and [here](http://cloudinit.readthedocs.io/en/latest/index.html)
+// and [here](http://cloudinit.readthedocs.io/en/latest/index.html).
 variable "user_data" {
   type    = "string"
   default = ""
