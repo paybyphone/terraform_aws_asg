@@ -16,6 +16,8 @@ NEW IMAGE SEARCHING FEATURE IN DETAIL:
    help lock down search results - to help maintain expected behaviour with
    older versions, the default is `self`.
 
+[1]: http://docs.aws.amazon.com/cli/latest/reference/ec2/describe-images.html
+
 OTHER FEATURES:
 
  * `user_data` can now be supplied to the instance.
