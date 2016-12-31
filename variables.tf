@@ -168,9 +168,3 @@ variable "user_data" {
   type    = "string"
   default = ""
 }
-
-// An instance profile ARN to run the created instances as.
-variable "instance_profile_arn" {
-  type    = "string"
-  default = ""
-}
