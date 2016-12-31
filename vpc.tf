@@ -19,7 +19,7 @@ module "autoscaling_instance_security_group" {
 // not true.
 resource "aws_security_group_rule" "autoscaling_instance_security_group_rule_egress_default" {
   count             = "${var.restrict_outbound_traffic != "true" ? 1 : 0}"
-  cidr_blocks       = "0.0.0.0/0"
+  cidr_blocks       = ["0.0.0.0/0"]
   from_port         = "0"
   protocol          = "all"
   security_group_id = "${module.autoscaling_instance_security_group.security_group_id}"
