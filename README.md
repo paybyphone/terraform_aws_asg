@@ -94,6 +94,7 @@ For more information on burstable instances, see:
 | alb_stickiness_duration | The LB stickiness expiration period. This configures LB stickiness, aka session persistence, on the side of the load balancer. Use when the application is not LB-aware on its own. When not specified, the default value is 1 second. Note that zero or negative values will result in an error. | `` | no |
 | extra_depends_on | Extra dependencies to hook into the aws_autoscaling_group resource in this module. This value should be a string that contains interpolations from the resources you want to add as dependencies. | `` | no |
 | user_data | User data, either a cloud-config YAML file or a shell script, to load into the instance. For more information see [here](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html) and [here](http://cloudinit.readthedocs.io/en/latest/index.html). | `` | no |
+| restrict_outbound_traffic | Restrict outbound traffic on the ASG's security group. By default, this is `false`, meaning that all traffic outbound from the instance (ie: to package repositories, S3, etc) is enabled. Set this to `true` if you require tighter security on the traffic originating from the ASG and plan on adding your own outbound rules. | `false` | no |
 
 ## Outputs
 

@@ -13,3 +13,16 @@ module "autoscaling_instance_security_group" {
   project_path = "${var.project_path}"
   vpc_id       = "${data.aws_subnet.primary_subnet.vpc_id}"
 }
+
+// autoscaling_instance_security_group_rule_egress_default allows all outbound
+// traffic from the ASG instance security group if restrict_outbound_traffic is
+// not true.
+resource "aws_security_group_rule" "autoscaling_instance_security_group_rule_egress_default" {
+  count             = "${var.restrict_outbound_traffic != "true" ? 1 : 0}"
+  cidr_blocks       = "0.0.0.0/0"
+  from_port         = "0"
+  protocol          = "all"
+  security_group_id = "${module.autoscaling_instance_security_group.security_group_id}"
+  to_port           = "0"
+  type              = "egress"
+}

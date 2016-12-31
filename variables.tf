@@ -168,3 +168,13 @@ variable "user_data" {
   type    = "string"
   default = ""
 }
+
+// Restrict outbound traffic on the ASG's security group. By default, this is
+// `false`, meaning that all traffic outbound from the instance (ie: to package
+// repositories, S3, etc) is enabled. Set this to `true` if you require tighter
+// security on the traffic originating from the ASG and plan on adding your own
+// outbound rules.
+variable "restrict_outbound_traffic" {
+  type    = "string"
+  default = "false"
+}
