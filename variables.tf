@@ -178,3 +178,11 @@ variable "restrict_outbound_traffic" {
   type    = "string"
   default = "false"
 }
+
+// Map a public IP address to the launched instances in the auto-scaling group.
+// Note that this will fail if the subnet you are using is not attached to an
+// internet gateway.
+variable "associate_public_ip_address" {
+  type    = "string"
+  default = "false"
+}
