@@ -1,4 +1,14 @@
-## v0.2.0
+## 0.2.1
+
+This change adds the `associate_public_ip_address` flag, which sets the
+respective option in your launch configuration, ensuring that instances launched
+by the ASG have public IP addresses. This can be useful if you don't have or
+need a bastion, or are not necessarily using ALB.
+    
+Note that this does not mean that your hosts are internet accessible other than
+via ICMP - you still need to open up the ports via security group rules.
+
+## 0.2.0
 
 BREAKING CHANGES:
 
@@ -27,11 +37,11 @@ OTHER FEATURES:
    restricted). You can change this behaviour back to restricted to setting
    `restrict_outbound_traffic` to `true`.
 
-## v0.1.1
+## 0.1.1
 
 Fixed rolling update issues. Target group name generation is now independent of
 the launch configuration name.
 
-## v0.1.0
+## 0.1.0
 
 Initial release.
