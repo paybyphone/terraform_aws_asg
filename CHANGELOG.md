@@ -1,3 +1,7 @@
+## 0.2.2-pre
+
+Bumped version for dev.
+
 ## 0.2.1
 
 This change adds the `associate_public_ip_address` flag, which sets the
