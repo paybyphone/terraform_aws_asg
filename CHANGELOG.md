@@ -1,3 +1,7 @@
+## 0.2.3-pre
+
+Bumped version for dev.
+
 ## 0.2.2
 
 `instance_profile_arn` is now `instance_profile_name`, reflecting the true
