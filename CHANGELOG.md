@@ -1,6 +1,9 @@
-## 0.2.2-pre
+## 0.2.2
 
-Bumped version for dev.
+`instance_profile_arn` is now `instance_profile_name`, reflecting the true
+nature of the option (it has always needed a name and not a full ARN). Also
+removed a duplicate reference to this option in the launch configuration, which
+could have possibly caused issues using the option.
 
 ## 0.2.1
 
