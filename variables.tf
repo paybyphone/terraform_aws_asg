@@ -126,8 +126,8 @@ variable "alb_target_protocol" {
   default = "HTTP"
 }
 
-// The ARN of an instance profile to associate with launched instances. 
-variable "instance_profile_arn" {
+// The name of an instance profile to associate with launched instances. 
+variable "instance_profile_name" {
   type    = "string"
   default = ""
 }

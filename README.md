@@ -89,7 +89,7 @@ For more information on burstable instances, see:
 | alb_health_check_timeout | The time to wait before marking the ALB health check as failed. Note that this number needs to be lower than health_check_interval. | `3` | no |
 | alb_health_check_interval | The time to wait between ALB health checks. Note that this number needs to be lower than health_check_timeout. | `10` | no |
 | alb_target_protocol | The ALB target protocol. Can be one of HTTP or HTTPS. | `HTTP` | no |
-| instance_profile_arn | The ARN of an instance profile to associate with launched instances. | `` | no |
+| instance_profile_name | The name of an instance profile to associate with launched instances. | `` | no |
 | key_pair_name | The name of a key pair to launch the ASG instances with.<br><br>Note that this should not be configured in a production environment - this is mainly supposed to be used for development and troubleshooting in sandbox and QA. | `` | no |
 | alb_stickiness_duration | The LB stickiness expiration period. This configures LB stickiness, aka session persistence, on the side of the load balancer. Use when the application is not LB-aware on its own. When not specified, the default value is 1 second. Note that zero or negative values will result in an error. | `` | no |
 | extra_depends_on | Extra dependencies to hook into the aws_autoscaling_group resource in this module. This value should be a string that contains interpolations from the resources you want to add as dependencies. | `` | no |

@@ -16,8 +16,7 @@ data "aws_ami" "autoscaling_launch_ami" {
 // autoscaling group.
 resource "aws_launch_configuration" "autoscaling_launch_configuration" {
   associate_public_ip_address = "${var.associate_public_ip_address}"
-  iam_instance_profile        = "${var.instance_profile_arn}"
-  iam_instance_profile        = "${var.instance_profile_arn}"
+  iam_instance_profile        = "${var.instance_profile_name}"
   image_id                    = "${data.aws_ami.autoscaling_launch_ami.id}"
   instance_type               = "${var.instance_type}"
   key_name                    = "${var.key_pair_name}"
