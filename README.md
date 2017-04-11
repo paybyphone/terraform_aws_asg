@@ -96,6 +96,7 @@ For more information on burstable instances, see:
 | user_data | User data, either a cloud-config YAML file or a shell script, to load into the instance. For more information see [here](http://docs.aws.amazon.com/AWSEC2/latest/UserGuide/user-data.html) and [here](http://cloudinit.readthedocs.io/en/latest/index.html). | `` | no |
 | restrict_outbound_traffic | Restrict outbound traffic on the ASG's security group. By default, this is `false`, meaning that all traffic outbound from the instance (ie: to package repositories, S3, etc) is enabled. Set this to `true` if you require tighter security on the traffic originating from the ASG and plan on adding your own outbound rules. | `false` | no |
 | associate_public_ip_address | Map a public IP address to the launched instances in the auto-scaling group. Note that this will fail if the subnet you are using is not attached to an internet gateway. | `false` | no |
+| additional_security_group_ids | List of additional security groups to assign to the instances | `[]` | no |
 
 ## Outputs
 

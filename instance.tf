@@ -20,7 +20,7 @@ resource "aws_launch_configuration" "autoscaling_launch_configuration" {
   image_id                    = "${data.aws_ami.autoscaling_launch_ami.id}"
   instance_type               = "${var.instance_type}"
   key_name                    = "${var.key_pair_name}"
-  security_groups             = ["${module.autoscaling_instance_security_group.security_group_id}"]
+  security_groups             = ["${module.autoscaling_instance_security_group.security_group_id}","${var.additional_security_group_ids}"]
   user_data                   = "${var.user_data}"
 
   lifecycle {

@@ -186,3 +186,10 @@ variable "associate_public_ip_address" {
   type    = "string"
   default = "false"
 }
+
+// Additional Security Groups to assign to Instances in the ASG
+variable "additional_security_group_ids" {
+  type    = "list"
+  default = []
+  description = "Additional Security Groups to assign to Instances in the ASG"
+}
