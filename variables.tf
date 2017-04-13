@@ -187,9 +187,9 @@ variable "associate_public_ip_address" {
   default = "false"
 }
 
-// Additional Security Groups to assign to Instances in the ASG
+// List of additional security groups to assign to the instances in addition to
+// the security group created by this module.
 variable "additional_security_group_ids" {
-  type    = "list"
-  default = []
-  description = "Additional Security Groups to assign to Instances in the ASG"
+  type        = "list"
+  default     = []
 }
