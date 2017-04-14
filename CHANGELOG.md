@@ -1,4 +1,4 @@
-## 0.2.3-pre
+## 0.2.3
 
 Added `additional_security_group_ids` to allow assigning additional security
 groups. This can be used to inject security groups created in other modules.
