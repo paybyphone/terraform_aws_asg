@@ -1,3 +1,7 @@
+## 0.2.4-pre
+
+Bumped version for dev.
+
 ## 0.2.3
 
 Added `additional_security_group_ids` to allow assigning additional security
