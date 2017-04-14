@@ -186,3 +186,10 @@ variable "associate_public_ip_address" {
   type    = "string"
   default = "false"
 }
+
+// List of additional security groups to assign to the instances in addition to
+// the security group created by this module.
+variable "additional_security_group_ids" {
+  type        = "list"
+  default     = []
+}
