@@ -13,11 +13,12 @@ resource "aws_autoscaling_group" "autoscaling_group" {
   target_group_arns         = ["${aws_alb_target_group.autoscaling_alb_target_group.*.arn}"]
   wait_for_elb_capacity     = "${lookup(map("true", var.min_instance_count), var.enable_alb, "0")}"
 
-  tag {
-    key                 = "project_path"
-    value               = "${var.project_path}"
-    propagate_at_launch = true
-  }
+  tags = ["${concat(
+    list(
+      map("key", "project_path", "value", "${var.project_path}", "propagate_at_launch", true),
+    ),
+    var.extra_instance_tags
+  )}"]
 
   lifecycle {
     create_before_destroy = true

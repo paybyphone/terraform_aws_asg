@@ -190,6 +190,19 @@ variable "associate_public_ip_address" {
 // List of additional security groups to assign to the instances in addition to
 // the security group created by this module.
 variable "additional_security_group_ids" {
-  type        = "list"
-  default     = []
+  type    = "list"
+  default = []
+}
+
+// A list of additional tag key/values to add to the autoscaling group. These
+// are supplied as per the [tag
+// parameter](https://www.terraform.io/docs/providers/aws/r/autoscaling_group.html#tag)
+// parameter in the `aws_autoscaling_group` resource. This is in addition to
+// the tag added by supplying `project_path`. These tags only get added to the
+// autoscaling group and the instances it launches, and only if
+// `propagate_at_launch` is set to `true` in the supplied maps (this is the
+// only useful value to supply).
+variable "extra_instance_tags" {
+  type    = "list"
+  default = []
 }
