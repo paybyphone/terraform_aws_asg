@@ -1,6 +1,11 @@
-## 0.2.4-pre
+## 0.2.4
 
-Bumped version for dev.
+This update adds `extra_instance_tags`, which allows the user to supply a list
+of hashes with the same syntax as the tag parameter for the
+`aws_autoscaling_group` resource. This allows one to supply extra tags that will
+get added to the ASG, and propagate to its instances so long as
+`propagate_on_launch` is set, which is more than likely what you want. A note
+has been added to the docs to this regard as well.
 
 ## 0.2.3
 
