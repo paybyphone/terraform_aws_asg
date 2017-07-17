@@ -1,3 +1,7 @@
+## 0.2.5-pre
+
+Bumped version for dev.
+
 ## 0.2.4
 
 This update adds `extra_instance_tags`, which allows the user to supply a list
